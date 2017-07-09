@@ -1,0 +1,45 @@
+---
+title: "Codebook"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r echo=FALSE}
+mean_table<-read.csv("C:/Users/User/Desktop/Course/Data science specialization/Course 3 week 4/Codebook.csv")
+```
+## Readme
+ 
+###1. The test data is manipulated first. Below are the steps
+1.1 Use read.table function to read the data file.
+1.2 Map the the variable in features.txt to x_Test.txt.
+1.3 Select variable with names having "Mean" or "Std" for x_Test.
+1.4 Merge the y_test.txt with activity.txt.
+1.5 Assign 128 varabile names for 3 set of files body_acc_(x-z)_test, body_gyro_(x-z)_test, total_acc_(x-z)_test.
+1.6 Use cbind function to consolidate the txt files into one file called alltest.
+ 
+###2. Secondly, the train data is manipulated in a way similar to what we mentioned previously
+2.1 Use read.table function to read the train file.
+2.2 Map the the variable in features.txt to x_Train.txt
+2.3 Select variable with names having "Mean" or "Std" for x_Test
+2.4 Assign 128 varabile names for 3 set of files body_acc_(x-z)_train, body_gyro_(x-z)_train, total_acc_(x-z)_train.
+2.5 Use cbind function to consolidate the txt files into one file called alltrain.
+ 
+###3. Merge alltest with all alltrain data by rbind function
+ 
+###4. Rename first 3 column name as "Activivty", "Activity Code" and "Subject"
+ 
+###5. Calculate mean of each variable by each activity and each subject to table "mean_table"
+
+### Below is the codebook of final result "mean_table"
+
+
+```{r echo=FALSE}
+library(knitr)
+kable(mean_table, caption = "Code of mean_table")
+
+```
+
+
